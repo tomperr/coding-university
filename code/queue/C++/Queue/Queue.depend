@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1575542061 source:p:\perso\coding-interview-university\code\queue\c++\queue\main.cpp
+	<iostream>
+	"queue.hpp"
+
+1575542299 p:\perso\coding-interview-university\code\queue\c++\queue\queue.hpp
+	<iostream>
+
