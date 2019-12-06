@@ -73,3 +73,65 @@ Analysis:
 	p = prime number greater than univers U carninality
 	p > |U|
 
+### https://www.youtube.com/watch?v=BRO7mVIFt08
+
+## How to choose m ?
+
+idea: 
+	start small, m = 8
+	grow / shrink as necessary
+
+If n > m : grow table
+
+Grow table: m -> m'
+	- make table of size m' => memory allocation
+	- build new hash f'
+	- rehash
+		for item in T: // table
+			T'.insert(item) // insert in new table with new hash
+
+m' = 2m => table doubling
+
+Amortization :
+	- operation takes "T(n) amortized" if k operations
+	take <= k * T(n) time
+	- think of meaning "T(n) on average" where average over all operations
+
+## Table doubling
+
+k inserts
+take O(k) time
+=> O(1) amortized per insert
+
+Also : k insert & deletes take O(k)
+
+## Deletion
+
+if we inserts n items then delete n items, m = max(n)
+but array is empty, so we need to resize
+
+Possibility 1 :
+	if m = n/2 then shrink -> m/2
+Problem: slow
+
+Possibility 2 :
+	if m = n/4 then shrink -> m/2
+
+## String matching
+
+given two string s & t
+does s occur as a substring of t ?
+
+Simple algorithm :
+	any (s==t[i:i+len(s)]
+		for i in range(len(t)-len(s)))
+
+	eg. s = "yes" "ohyesman"
+	ohy == yes
+	hye == yes
+	yes == yes
+	...
+
+	Time : O(|s|*(|t|-|s|)) = O(|s|*|t|)
+		=> pretty slow
+
