@@ -115,7 +115,7 @@ Possibility 1 :
 Problem: slow
 
 Possibility 2 :
-	if m = n/4 then shrink -> m/2
+	if m = n/4 then shrink -> m/
 
 ## String matching
 
