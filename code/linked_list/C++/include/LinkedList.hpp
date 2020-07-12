@@ -27,7 +27,7 @@ class LinkedList
 		void erase(int index);
 		T value_n_from_end(int index);
 		void reverse(void);
-		//void remove_value(T item);
+		void remove_value(T item);
 		void print(void);
 };
 
@@ -194,7 +194,7 @@ void LinkedList<T>::reverse() {
 
 	this->ptr_tail = curr;
 
-	while (curr->get_next() != NULL) {
+	while (curr != NULL) {
 
 		next = curr->get_next();
 		curr->set_next(previous);
@@ -203,11 +203,24 @@ void LinkedList<T>::reverse() {
 
 	}
 
-	this->ptr_front = curr;
+	this->ptr_front = previous;
 
-	// TODO: finish reverse method
+}
 
+template <class T>
+void LinkedList<T>::remove_value(T item) {
+	if (this->ptr_front->get_item() == item) {
+		this->ptr_front = this->ptr_front->get_next();
+	}
 
+	LinkedListNode<T>* tmp = this->ptr_front;
+	while (tmp->get_next() != NULL) {
+		if (tmp->get_next()->get_item() == item) {
+			tmp->set_next(tmp->get_next()->get_next());
+		} else {
+			tmp = tmp->get_next();
+		}
+	}
 }
 
 #endif
