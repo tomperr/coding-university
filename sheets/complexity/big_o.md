@@ -28,3 +28,5 @@ eg.: quick sort
 	number of comparisions = log n!
 		= log n + log (n-1) ... + log (1)
 		= n log n
+
+		
